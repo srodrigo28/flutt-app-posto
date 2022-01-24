@@ -48,17 +48,20 @@ class _AppCombustivelState extends State<AppCombustivel> {
       double km_gasolina = lt_gasolina * mediaGasolina;
       double km_alcool = lt_alcool * mediaAlcool;
 
-      _msnText_1 = " Roda na Gasolina -  $km_gasolina ";
-      _msnText_2 = " Roda no Álcool -  $km_alcool ";
+      _msnText_1 = " Roda na Gasolina -  ${km_gasolina.toStringAsFixed(2)} km";
+      _msnText_2 = " Roda no Álcool -  ${km_alcool.toStringAsFixed(2)} km";
 
-      //print('Litros em Gasolina: ' + lt_gasolina.toStringAsPrecision(3));
-      //print('Litros em Álcool: ' +lt_alcool.toStringAsPrecision(3));
+      // _msnText_1 = km_gasolina.toStringAsFixed(2);
+      // _msnText_2 = km_alcool.toStringAsFixed(2) ;
+
+      print( km_gasolina.toStringAsFixed(2) );
+      print( km_alcool.toStringAsFixed(2) );
 
     });
   }
 
-  String _msnText_1 = "Informe seus dados ";
-  String _msnText_2 = "Informe seus dados ";
+  String _msnText_1 = "Resultado em gasolina ";
+  String _msnText_2 = "Resultado em álcool ";
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,7 @@ class _AppCombustivelState extends State<AppCombustivel> {
       appBar: AppBar(
         title: const Text("KM do seu Carro"),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.deepPurple,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -84,15 +87,15 @@ class _AppCombustivelState extends State<AppCombustivel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Icon(Icons.person_outline, size: 100.0, color: Colors.green),
+              const Icon(Icons.person_outline, size: 100.0, color: Colors.deepPurple),
 
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     labelText: "Valor Abaster",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Colors.deepPurple)),
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                    style: const TextStyle(color: Colors.deepPurple, fontSize: 15.0),
                     controller: valor_abastecer,
                     validator: (value) {
                       if(value!.isEmpty){
@@ -105,9 +108,9 @@ class _AppCombustivelState extends State<AppCombustivel> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     labelText: "Preço Gasolina ",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Colors.deepPurple)),
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                    style: const TextStyle(color: Colors.deepPurple, fontSize: 15.0),
                     controller: valor_gasolina,
                     validator: (value) {
                       if(value!.isEmpty){
@@ -120,9 +123,9 @@ class _AppCombustivelState extends State<AppCombustivel> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     labelText: "Média Gasolina ",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Colors.deepPurple)),
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                    style: const TextStyle(color: Colors.deepPurple, fontSize: 15.0),
                     controller: media_gasolina,
                     validator: (value) {
                       if(value!.isEmpty){
@@ -135,9 +138,9 @@ class _AppCombustivelState extends State<AppCombustivel> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     labelText: "Preço Alcool ",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Colors.deepPurple)),
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                    style: const TextStyle(color: Colors.deepPurple, fontSize: 15.0),
                     controller: valor_alcool,
                     validator: (value) {
                       if(value!.isEmpty){
@@ -150,9 +153,9 @@ class _AppCombustivelState extends State<AppCombustivel> {
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     labelText: "Média Alcool",
-                    labelStyle: TextStyle(color: Colors.green)),
+                    labelStyle: TextStyle(color: Colors.deepPurple)),
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                    style: const TextStyle(color: Colors.deepPurple, fontSize: 15.0),
                     controller: media_alcool,
                     validator: (value) {
                       if(value!.isEmpty){
@@ -171,22 +174,27 @@ class _AppCombustivelState extends State<AppCombustivel> {
                     }
                   }, // chama a função criada
                   child: const Text('Caclcular'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(primary: Colors.deepPurple),
                   //style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.green) ),
                 ),
               ),
 
               const SizedBox(height: 10),
+              const Text(
+                'Seja muito bem vindo preencha os campos para calcular',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.deepOrange, fontSize: 15.0),
+              ),
 
               Text(
                 _msnText_1,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.green, fontSize: 15.0),
+                style: const TextStyle(color: Colors.orange, fontSize: 15.0),
               ),
               Text(
                 _msnText_2,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.blue, fontSize: 15.0),
+                style: const TextStyle(color: Colors.lightBlueAccent, fontSize: 15.0),
               ),
 
             ],
